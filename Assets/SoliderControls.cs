@@ -10,7 +10,7 @@ public class SoliderControls : MonoBehaviour
     [SerializeField] float maxY = 4.2f;
     [SerializeField] float minX = -8.23f;
     [SerializeField] float maxX = 8.23f;
-    [SerializeField] GameObject Bullets;
+    //[SerializeField] GameObject Bullets;
     Animator animator;
     SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
@@ -81,7 +81,14 @@ public class SoliderControls : MonoBehaviour
         {
             transform.position = new Vector3(maxX, transform.position.y, 0f);
         }
-
+        if (transform.position.y<=0.5&& transform.position.y >=-0.5&& transform.position.x >= 8.2)
+        {
+            transform.position = new Vector3(-8.2f,0f,0f);
+        }
+        if (transform.position.y <= 0.5 && transform.position.y >= -0.5 && transform.position.x <= -8.2)
+        {
+            transform.position = new Vector3(8.2f, 0f, 0f);
+        }
 
         /*if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -92,8 +99,8 @@ public class SoliderControls : MonoBehaviour
         {
             float newY = transform.position.y + 0.5f;
             float newX = transform.position.x + 0.5f;
-            GameObject go=Instantiate(Bullets, new Vector3(newX, newY, transform.position.z), transform.rotation);
-            go.transform.rotate
+            //GameObject go=Instantiate(Bullets, new Vector3(newX, newY, transform.position.z), transform.rotation);
+            //go.transform.rotate
             //keep track of which way its pointing and rotate it based on that,make bools foreach direction 
         }
     }
